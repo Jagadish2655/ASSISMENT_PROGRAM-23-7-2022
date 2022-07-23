@@ -1,0 +1,89 @@
+// ASAMPALLY JAGADISH
+#include<stdio.h>
+int main()
+{
+    int pr[50]; //pressure sensor right
+    int pc[50]; //pressure sensor centre
+    int pl[50]; //pressure sensor left
+
+    int i,j=0,k=0,l=0;
+
+    for(i=10;i<=60;i++)//loading values into pressure sensor right
+    {
+    pr[j]=i;
+    j++;
+    }
+
+    for(i=25;i<=75;i++)//loading values into pressure sensor centre
+    {
+     pc[k]=i;
+     k++;
+    }
+
+    for(i=10;i<=60;i++)//loading values into pressure sensor left
+    {
+     pl[l]=i;
+     l++;
+    }
+
+    int fpd[100],m=0,cnt=0;
+    i=0;
+
+    while(cnt<=5)//checking continously 5 samples in F P data storing or not
+    {
+      if(pr[i]>5)
+        {
+         fpd[m]=pr[i];
+          m++;
+          i=i+5;
+          cnt++;
+        }
+        else
+        {
+            cnt=0;
+        }
+
+          if(pc[i]>5)
+          {
+              fpd[m]=pc[i];
+              m++;
+              i=i+5;
+              cnt++;
+          }
+          else
+          {
+              cnt=0;
+          }
+
+              if(pl[i]>5)
+              {
+                  fpd[m]=pc[i];
+                 m++;
+                 i=i+5;
+                 cnt++;
+              }
+              else
+              {
+                  cnt=0;
+              }
+    }
+
+
+    if(cnt>=5)
+    {
+        printf("air bags open");
+    }
+    else
+    {
+        printf("not open");
+    }
+
+}
+/*if(cnt==5)
+{
+
+    printf("air bags are open ");
+}*/
+
+
+
